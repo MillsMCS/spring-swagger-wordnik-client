@@ -4,11 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.nio.charset.StandardCharsets;
 import org.apache.commons.io.IOUtils;
-import edu.mills.cs180a.wordnik.client.api.AccountApi;
 import edu.mills.cs180a.wordnik.client.api.WordsApi;
 import edu.mills.cs180a.wordnik.client.invoker.ApiClient;
-import edu.mills.cs180a.wordnik.client.model.AuthenticationToken;
-import edu.mills.cs180a.wordnik.client.model.User;
 import edu.mills.cs180a.wordnik.client.model.WordOfTheDay;
 
 public class Main {
@@ -40,12 +37,5 @@ public class Main {
         WordsApi wordsApi = client.buildClient(WordsApi.class);
         WordOfTheDay word = wordsApi.getWordOfTheDay();
         System.out.println(word);
-
-        AccountApi accountApi = client.buildClient(AccountApi.class);
-        String password = getPassword();
-        AuthenticationToken authToken = accountApi.authenticate(USER_NAME, password);
-        System.out.println("Received Authentication Token");
-        User user = accountApi.getLoggedInUser(authToken.getToken());
-        System.out.println(user);
     }
 }

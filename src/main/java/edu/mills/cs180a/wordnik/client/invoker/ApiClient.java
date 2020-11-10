@@ -1,11 +1,7 @@
 package edu.mills.cs180a.wordnik.client.invoker;
 
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import org.apache.commons.io.IOUtils;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest.AuthenticationRequestBuilder;
 import org.apache.oltu.oauth2.client.request.OAuthClientRequest.TokenRequestBuilder;
 import org.threeten.bp.Instant;
@@ -15,12 +11,10 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
-import edu.mills.cs180a.wordnik.client.api.WordsApi;
 import edu.mills.cs180a.wordnik.client.invoker.auth.ApiKeyAuth;
 import edu.mills.cs180a.wordnik.client.invoker.auth.HttpBasicAuth;
 import edu.mills.cs180a.wordnik.client.invoker.auth.OAuth;
 import edu.mills.cs180a.wordnik.client.invoker.auth.OAuth.AccessTokenListener;
-import edu.mills.cs180a.wordnik.client.model.WordOfTheDay;
 import feign.Feign;
 import feign.RequestInterceptor;
 import feign.form.FormEncoder;
@@ -33,8 +27,6 @@ import feign.slf4j.Slf4jLogger;
 public class ApiClient {
     public interface Api {
     }
-
-    private static final String API_KEY_FILE = "api-key.txt";
 
     protected ObjectMapper objectMapper;
     private String basePath = "https://api.wordnik.com/v4";
@@ -356,27 +348,4 @@ public class ApiClient {
         apiAuthorizations.put(authName, authorization);
         feignBuilder.requestInterceptor(authorization);
     }
-
-    private static String getApiKey() throws IOException {
-        try (InputStream is =
-                ApiClient.class.getClassLoader().getResourceAsStream(API_KEY_FILE)) {
-            if (is == null) {
-                throw new IOException("Unable to open file " + API_KEY_FILE);
-            }
-            return IOUtils.toString(is, StandardCharsets.UTF_8).trim();
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            ApiClient client = new ApiClient("api_key");
-            client.setApiKey(getApiKey());
-            WordsApi api = client.buildClient(WordsApi.class);
-            WordOfTheDay word = api.getWordOfTheDay();
-            System.out.println(word);
-        } catch (IOException e) {
-            System.err.println(e);
-        }
-    }
-
 }

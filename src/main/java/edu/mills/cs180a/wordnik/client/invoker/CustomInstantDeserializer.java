@@ -1,4 +1,4 @@
-package com.edu.mills.cs180a.wordnik.client.invoker;
+package edu.mills.cs180a.wordnik.client.invoker;
 
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.core.JsonTokenId;

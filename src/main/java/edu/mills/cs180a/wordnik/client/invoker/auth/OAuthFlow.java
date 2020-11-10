@@ -11,7 +11,7 @@
  */
 
 
-package com.edu.mills.cs180a.wordnik.client.invoker.auth;
+package edu.mills.cs180a.wordnik.client.invoker.auth;
 
 public enum OAuthFlow {
     accessCode, implicit, password, application

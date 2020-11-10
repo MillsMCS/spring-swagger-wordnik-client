@@ -1,6 +1,6 @@
 package edu.mills.cs180a.wordnik.client.api;
 
-import com.edu.mills.cs180a.wordnik.client.invoker.ApiClient;
+import edu.mills.cs180a.wordnik.client.invoker.ApiClient;
 import edu.mills.cs180a.wordnik.client.model.StringValue;
 import edu.mills.cs180a.wordnik.client.model.WordList;
 import edu.mills.cs180a.wordnik.client.model.WordListWord;

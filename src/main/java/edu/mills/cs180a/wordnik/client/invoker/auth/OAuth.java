@@ -1,4 +1,4 @@
-package com.edu.mills.cs180a.wordnik.client.invoker.auth;
+package edu.mills.cs180a.wordnik.client.invoker.auth;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -17,7 +17,7 @@ import org.apache.oltu.oauth2.common.exception.OAuthProblemException;
 import org.apache.oltu.oauth2.common.exception.OAuthSystemException;
 import org.apache.oltu.oauth2.common.message.types.GrantType;
 import org.apache.oltu.oauth2.common.token.BasicOAuthToken;
-
+import edu.mills.cs180a.wordnik.client.invoker.StringUtil;
 import feign.Client;
 import feign.Request.Options;
 import feign.RequestInterceptor;
@@ -25,7 +25,6 @@ import feign.RequestTemplate;
 import feign.Response;
 import feign.RetryableException;
 import feign.Util;
-import com.edu.mills.cs180a.wordnik.client.invoker.StringUtil;
 
 
 public class OAuth implements RequestInterceptor {

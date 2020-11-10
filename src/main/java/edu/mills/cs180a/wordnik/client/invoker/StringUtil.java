@@ -11,7 +11,7 @@
  */
 
 
-package com.edu.mills.cs180a.wordnik.client.invoker;
+package edu.mills.cs180a.wordnik.client.invoker;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-09T16:51:03.324-08:00")
 public class StringUtil {

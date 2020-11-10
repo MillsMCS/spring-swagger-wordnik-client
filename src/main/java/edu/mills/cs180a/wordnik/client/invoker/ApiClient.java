@@ -1,4 +1,4 @@
-package com.edu.mills.cs180a.wordnik.client.invoker;
+package edu.mills.cs180a.wordnik.client.invoker;
 
 import java.util.LinkedHashMap;
 import java.util.Map;
@@ -11,15 +11,14 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.threetenbp.ThreeTenModule;
-
+import edu.mills.cs180a.wordnik.client.invoker.auth.*;
+import edu.mills.cs180a.wordnik.client.invoker.auth.OAuth.AccessTokenListener;
 import feign.Feign;
 import feign.RequestInterceptor;
 import feign.form.FormEncoder;
 import feign.jackson.JacksonDecoder;
 import feign.jackson.JacksonEncoder;
 import feign.slf4j.Slf4jLogger;
-import com.edu.mills.cs180a.wordnik.client.invoker.auth.*;
-import com.edu.mills.cs180a.wordnik.client.invoker.auth.OAuth.AccessTokenListener;
 
 @javax.annotation.Generated(value = "io.swagger.codegen.languages.JavaClientCodegen", date = "2020-11-09T16:51:03.324-08:00")
 public class ApiClient {

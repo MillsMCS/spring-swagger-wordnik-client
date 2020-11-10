@@ -1,4 +1,4 @@
-package com.edu.mills.cs180a.wordnik.client.invoker;
+package edu.mills.cs180a.wordnik.client.invoker;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;

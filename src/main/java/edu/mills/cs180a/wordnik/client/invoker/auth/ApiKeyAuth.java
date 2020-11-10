@@ -1,4 +1,4 @@
-package com.edu.mills.cs180a.wordnik.client.invoker.auth;
+package edu.mills.cs180a.wordnik.client.invoker.auth;
 
 import feign.RequestInterceptor;
 import feign.RequestTemplate;
